@@ -1,0 +1,58 @@
+﻿<mah:MetroWindow x:Class="BudgetTracker.View.MainMenuWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        Title="BudgetTrackerApp" Height="400" Width="600" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <!-- Left Side: Scrolling Profile Menu -->
+        <ScrollViewer Grid.Column="0" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Hidden">
+            <StackPanel Background="LightGray" Width="150">
+                <!-- Menu Items -->
+                <RadioButton GroupName="UserSelection" HorizontalAlignment="Stretch" Margin="5">
+                    <TextBlock TextTrimming="CharacterEllipsis" Text="User 1"/>
+                </RadioButton>
+                <RadioButton GroupName="UserSelection" HorizontalAlignment="Stretch"  Margin="5">
+                    <TextBlock TextTrimming="CharacterEllipsis" Text="User 2"/>
+                </RadioButton>
+            </StackPanel>
+        </ScrollViewer>
+
+        <!-- Right Side: Logging Form or Profile Creation Form -->
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!-- Logging Form -->
+            <StackPanel x:Name="LoggingForm" Margin="110,0,110,0" Grid.Row="0" Visibility="Visible" VerticalAlignment="Center">
+                <TextBlock Margin="10" Text="Logging In" FontSize="24" Foreground="{DynamicResource MahApps.Brushes.AccentBase}"/>
+                <TextBox Margin="5" FontSize="16" mah:TextBoxHelper.Watermark="Username" mah:TextBoxHelper.ClearTextButton="True"/>
+                <PasswordBox Margin="5" FontSize="16" mah:TextBoxHelper.Watermark="Password" mah:TextBoxHelper.ClearTextButton="True"/>
+                <Button Content="Login" Margin="5" FontSize="16" HorizontalAlignment="Stretch" Style="{DynamicResource MahApps.Styles.Button.Flat}"/>
+            </StackPanel>
+
+            <!-- Profile Creation Form -->
+            <StackPanel x:Name="ProfileCreationForm" Margin="110,0,110,0" Grid.Row="0" Visibility="Collapsed" VerticalAlignment="Center">
+                <TextBlock Margin="10" Text="Create Profile" FontSize="24" Foreground="{DynamicResource MahApps.Brushes.AccentBase}"/>
+                <TextBox Margin="5" FontSize="16" mah:TextBoxHelper.Watermark="Username" mah:TextBoxHelper.ClearTextButton="True"/>
+                <PasswordBox Margin="5" FontSize="16" mah:TextBoxHelper.Watermark="Password" mah:TextBoxHelper.ClearTextButton="True"/>
+                <PasswordBox Margin="5" FontSize="16" mah:TextBoxHelper.Watermark="Repeat Password" mah:TextBoxHelper.ClearTextButton="True"/>
+                <Button Content="Create Profile" Margin="5" FontSize="16" HorizontalAlignment="Stretch" Style="{DynamicResource MahApps.Styles.Button.Flat}"/>
+            </StackPanel>
+
+            <!-- Create Profile Button -->
+            <Button Content="Create Profile" Visibility="Visible" Margin="20" FontSize="16" Grid.Row="1" HorizontalAlignment="Right" Style="{DynamicResource MahApps.Styles.Button.Chromeless}">
+            </Button>
+                   
+        </Grid>
+    </Grid>
+</mah:MetroWindow>
