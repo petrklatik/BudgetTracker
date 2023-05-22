@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using BudgetTracker.ViewModel;
 using MahApps.Metro.Controls;
 
 namespace BudgetTracker.View
@@ -23,6 +24,7 @@ namespace BudgetTracker.View
         public MainMenuWindow()
         {
             InitializeComponent();
+            DataContext = new MainMenuViewModel();
         }
     }
 }
