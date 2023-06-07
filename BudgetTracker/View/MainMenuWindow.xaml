@@ -16,9 +16,15 @@
         <ScrollViewer Grid.Column="0" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Hidden">
             <StackPanel Background="LightGray" Width="150">
                 <!-- Menu Items -->
-                <Button HorizontalAlignment="Stretch" Margin="5">
-                    <TextBlock TextTrimming="CharacterEllipsis" Text="User 1"/>
-                </Button>
+                <ItemsControl ItemsSource="{Binding UserList}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Button HorizontalAlignment="Stretch" Margin="5">
+                                <TextBlock Text="{Binding}" TextTrimming="CharacterEllipsis" />
+                            </Button>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
             </StackPanel>
         </ScrollViewer>
 
@@ -40,7 +46,7 @@
             <!-- Profile Creation Form -->
             <StackPanel x:Name="ProfileCreationForm" Margin="110,0,110,0" Grid.Row="0" Visibility="{Binding IsProfileCreationFormVisibility}" VerticalAlignment="Center">
                 <TextBlock Margin="10" Text="Create Profile" FontSize="24" Foreground="{DynamicResource MahApps.Brushes.AccentBase}"/>
-                <TextBox Text="{Binding Username, Mode=TwoWay}" Margin="5" FontSize="16" mah:TextBoxHelper.Watermark="Username" mah:TextBoxHelper.ClearTextButton="True"/>
+                <TextBox Text="{Binding Username}" Margin="5" FontSize="16" mah:TextBoxHelper.Watermark="Username" mah:TextBoxHelper.ClearTextButton="True"/>
                 <PasswordBox mah:PasswordBoxBindingBehavior.Password="{Binding Password}" Margin="5" FontSize="16" mah:TextBoxHelper.Watermark="Password" mah:TextBoxHelper.ClearTextButton="True"/>
                 <PasswordBox mah:PasswordBoxBindingBehavior.Password="{Binding RepeatPassword}" Margin="5" FontSize="16" mah:TextBoxHelper.Watermark="Repeat Password" mah:TextBoxHelper.ClearTextButton="True"/>
                 <Button Command="{Binding CreateProfileFormCommand}" Content="Create Profile" Margin="5" FontSize="16" HorizontalAlignment="Stretch" Style="{DynamicResource MahApps.Styles.Button.Flat}"/>
